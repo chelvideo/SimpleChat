@@ -1,13 +1,25 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.messageBox {
+  height: 150px;
+  width: 50%;
+  margin: 0 auto;
+  border: 1px solid;
+  border-radius: 10px;
+  overflow-y: scroll;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.messageList {
+  list-style-type: none;
+}
+
+.messageText {
+  font-size: 1.5rem;
+  padding-bottom: 10px;
+}
+
+.inputBox {
+  width: 50%;
+  height: 1.5rem;
+  margin: 20px auto;
+  border-radius: 5px;
+  display: block;
 }
