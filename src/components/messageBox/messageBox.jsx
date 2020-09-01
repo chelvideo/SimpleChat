@@ -1,5 +1,10 @@
 import React, { useRef, useEffect } from 'react';
 
+/**
+ * This component renders the message list. 
+ * Component contain useEffect hook that scrolls the list to last message.  
+ * @property {array}  props.message - The user messages
+ */
 function MessageBox(props) {
     const messageListRef = useRef(null);
 
@@ -24,9 +29,6 @@ function MessageBox(props) {
                 {messageList}
             </ul>
         </div>
-        
-
-        
     )
 }
 
