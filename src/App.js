@@ -1,38 +1,54 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import MessageBox from './components/messageBox/messageBox';
 import InputBox from './components/inputBox/inputBox';
+import { db } from './services/firebase';
 
-let messageList = [
+
+/*
+db.ref("simplechat").set(
   {
-    id: 0,
-    user: "user",
-    text: "first message"
-  },
-  {
-    id: 1,
-    user: "user",
-    text: "second message"
-  },
-  {
-    id: 2,
-    user: "user",
-    text: "la-la-la"
+    message: 
+      {
+        id: 0,
+        user: "user",
+        text: "first message"
+      },
+    message1: 
+      {
+        id: 1,
+        user: "user",
+        text: "second message"
+      }
   }
-]
-
+);
+*/
+ 
 function App() {
-  const [message, messageUpdate] = useState(messageList);
+  const [message, messageUpdate] = useState([]);
+  useEffect(()=>{
+    const listener = db.ref().on("value", snapshot => {
+      let chats = [];
+      snapshot.forEach((snap) => {
+        chats.push(snap.val());
+      });
+      messageUpdate(chats);
+    });
+    return () => db.ref.off('value', listener);
+  },[]);
 
   return (
-    <div className="App">
+    <div className="app">
+      <h1 className="title">Simple Chat</h1> 
       <MessageBox 
         message = {message}
       />
       <InputBox 
         message = {message}
         messageUpdate = {messageUpdate}
+        db = {db}
       />
+
     </div>
   );
 }

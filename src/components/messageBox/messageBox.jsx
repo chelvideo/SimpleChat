@@ -9,8 +9,8 @@ function MessageBox(props) {
 
     const messageList = props.message.map(message =>
         <li key={message.id}>
-            <div>
-                {message.user}:
+            <div className="messageUser">
+                {message.user} at {message.timestamp}:
             </div>
             <div className="messageText">
                 {message.text}
