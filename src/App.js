@@ -11,9 +11,9 @@ function App() {
   const [message, messageUpdate] = useState([]);
   useEffect(() => {
     const listener = db.ref().on("value", snapshot => {
-      let chats = [];
-      snapshot.forEach(msg => { chats.push(msg.val()) });
-      messageUpdate(chats);
+      let msg = [];
+      snapshot.forEach(item => { msg.push(item.val()) });
+      messageUpdate(msg);
     });
     return () => db.ref.off('value', listener);
   }, []);

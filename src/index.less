@@ -1,0 +1,49 @@
+@common_width: 50%;
+@first_color: #767676;
+@sec_color: #BBBBBB;
+
+.app {
+    height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.title {
+    width: @common_width;
+    margin: 0 auto;
+    border-bottom: 1px solid @first_color;
+}
+
+.messageBox {
+    height: 80%;
+    width: @common_width;
+    margin: 20px auto;
+    overflow-y: scroll;
+}
+
+.messageList {
+    list-style-type: none;
+}
+
+.messageUser {
+    background-color: @sec_color;
+    display: inline;
+    font-size: 0.8rem;
+    box-shadow: 0px 0px 10px 0px @first_color;
+}
+
+.messageText {
+    width: 95%;
+    font-size: 1.5rem;
+    padding-bottom: 10px;
+    overflow-wrap: break-word;
+}
+
+.inputBox {
+    width: @common_width;
+    height: 1.5rem;
+    font-size: 1rem;
+    margin: 20px auto;
+    border-width: 0 0 1px 0;
+    outline: none;
+    display: block;
+}
